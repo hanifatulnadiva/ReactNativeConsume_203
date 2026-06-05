@@ -7,7 +7,7 @@ const authRepo= new AuthRepositoryImpl();
 
 export const useAuthViewModel=()=>{
     const [loading, setLoading] = useState(false);
-    const [error, setError]= useState<String |null>(null);
+    const [error, setError]= useState<string |null>(null);
     const router=useRouter();
     const handleLogin = async (email:string, password:string)=>{
         setLoading(true);
@@ -28,7 +28,7 @@ export const useAuthViewModel=()=>{
         setError(null);
         try{
             await authRepo.register(username, email, password);
-            router.replace('/auth/login');
+            router.replace('/auth/register');
         }catch(err:any){
             setError(err.response?.data?.messege ||'Registration failed');
         }finally{

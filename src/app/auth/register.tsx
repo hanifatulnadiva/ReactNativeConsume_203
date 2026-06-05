@@ -61,6 +61,10 @@ export default function RegisterScreen() {
     }
 
     await handleRegister(cleanUsername, cleanEmail, password);
+    if (!error) {
+      Alert.alert("Sukses", "Pendaftaran berhasil! Silakan login.");
+      router.replace("/");
+    }
   };
   return (
     <ThemedView style={styles.container}>

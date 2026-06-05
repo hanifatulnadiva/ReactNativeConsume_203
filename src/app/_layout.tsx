@@ -1,9 +1,7 @@
 import { Slot, useRouter, useSegments } from "expo-router";
 import * as SecureStore from "expo-secure-store";
 import { useEffect, useState } from "react";
-import { ActivityIndicator } from "react-native";
-import { View } from "react-native-reanimated/lib/typescript/Animated";
-
+import { ActivityIndicator, View } from "react-native"; 
 
 export default function RootLayout() {
   const [isReady, setIsReady] = useState(false);
@@ -13,7 +11,7 @@ export default function RootLayout() {
   useEffect(() => {
     const checkAuth = async () => {
       const token = await SecureStore.getItemAsync("user_token");
-      const inAuthGroup = segments[0] === "auth";
+      const inAuthGroup = !segments[0] || segments[0] === "auth";
 
       if (!token && !inAuthGroup) {
         router.replace("/auth/register");
@@ -33,4 +31,5 @@ export default function RootLayout() {
     );
   }
   return <Slot />;
+  
 }

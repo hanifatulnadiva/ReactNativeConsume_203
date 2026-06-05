@@ -4,16 +4,15 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AnimatedIcon } from '@/components/animated-icon';
 import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
 import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
 import { useHewanViewModel } from '@/hooks/useHewanViewModel';
 import { useAuthViewModel } from '@/hooks/useAuthViewModel';
 import { useEffect } from 'react';
-import { ThamedText } from '@/components/thamedText';
-import { FlatList } from 'react-native-reanimated/lib/typescript/Animated';
+import { FlatList } from 'react-native';
 import { router } from 'expo-router';
+import { ThemedView } from '@/components/themed-view';
+import { ThemedText } from '@/components/themedText';
 
 
 export default function DashboardScreen() {
@@ -48,7 +47,7 @@ export default function DashboardScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ThemedView style={styles.header}>
-          <ThamedText type="tittle">Daftar Ternak</ThamedText>
+          <ThemedText type="tittle">Daftar Ternak</ThemedText>
           <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
             <ThemedText style={styles.logoutText}>Logout</ThemedText>
           </TouchableOpacity>
@@ -63,25 +62,25 @@ export default function DashboardScreen() {
         }
         ListEmptyComponent={
           <ThemedView style={styles.emptyContainer}>
-            <ThamedText style={styles.emptyText}>Belum ada data hewan ternak</ThamedText>
+            <ThemedText style={styles.emptyText}>Belum ada data hewan ternak</ThemedText>
           </ThemedView>
         }
 
         renderItem={({item})=>(
           <ThemedView style={styles.card}>
             <ThemedView style={styles.cardInfo}>
-              <ThamedText type="defaultSemiBold"  style={styles. animalName}>
+              <ThemedText type="defaultSemiBold"  style={styles. animalName}>
                 {item.nama}
-              </ThamedText>
-              <ThamedText style={styles.animalMeta}>
-                {item.jenis} . <ThamedText style={item.status === 'tersedia'? styles.statusActive : styles.statusSold} > {item.status}</ThamedText>
-              </ThamedText>
-              <ThamedText style ={styles.animalPrice}> Rp{item.harga.toLocaleString('id-ID')}</ThamedText>
+              </ThemedText>
+              <ThemedText style={styles.animalMeta}>
+                {item.jenis} . <ThemedText style={item.status === 'tersedia'? styles.statusActive : styles.statusSold} > {item.status}</ThemedText>
+              </ThemedText>
+              <ThemedText style ={styles.animalPrice}> Rp{item.harga.toLocaleString('id-ID')}</ThemedText>
             </ThemedView>
             <TouchableOpacity style= {styles.deleteButton}
               onPress={()=> confirmDelete(item.id!, item.nama)}
             >
-              <ThamedText style= {styles.deleteButtonText}>Hapus</ThamedText>
+              <ThemedText style= {styles.deleteButtonText}>Hapus</ThemedText>
             </TouchableOpacity>
           </ThemedView>
         )}
@@ -90,7 +89,7 @@ export default function DashboardScreen() {
         style={styles.fab}
         onPress={()=> router.push('/main/form')}
       >
-        <ThamedText style= {styles.fabText}>+</ThamedText>
+        <ThemedText style= {styles.fabText}>+</ThemedText>
       </TouchableOpacity>
       </SafeAreaView>
     </ThemedView>

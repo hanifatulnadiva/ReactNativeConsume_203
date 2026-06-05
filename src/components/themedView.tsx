@@ -2,11 +2,11 @@ import{View, type ViewProps} from 'react-native';
 import {useColorScheme} from 'react-native';
 import {Colors} from '../constants/Colors';
 
-export interface ThamedViewProps extends ViewProps{
+export interface ThemedViewProps extends ViewProps{
     lightColor?:string;
     darkColor?:string;
 }
-export function Thamed({style, lightColor, darkColor,...otherProps}:ThamedViewProps) {
+export function Themed({style, lightColor, darkColor,...otherProps}:ThemedViewProps) {
     const theme= useColorScheme() ?? 'light';
     const backgrounndColor = theme === 'light'
         ?(lightColor ?? Colors.light.background)

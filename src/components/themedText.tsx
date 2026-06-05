@@ -1,19 +1,19 @@
 import {Platform, StyleSheet, Text, useColorScheme, type TextProps} from 'react-native';
 import {Colors} from '../constants/Colors';
 
-export interface ThamedTextProps extends TextProps{
+export interface ThemedTextProps extends TextProps{
     lightColor?:string;
     darkColor?:string;
     type?:'default'|'tittle'|'defaultSemiBold'|'subtittle'|'link'|'code';
 }
 
-export function ThamedText({
+export function ThemedText({
     style,
     lightColor,
     darkColor,
     type='default',
     ...rest
-}: ThamedTextProps){
+}: ThemedTextProps){
     const theme = useColorScheme() ?? 'light';
     const color = theme === 'light'
         ?(lightColor ?? Colors.light.text)

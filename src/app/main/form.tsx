@@ -19,7 +19,7 @@ export default function FormHewanScreen() {
 const params = useLocalSearchParams();
 const isEdit = !!params.id;
 
-  const [nama, setNama] = useState("");
+  const [nama, setNama] = useState((params.nama as string) ?? "");
   const [jenis, setJenis] = useState("");
   const [harga, setHarga] = useState("");
   const [tanggalLahir, setTanggalLahir] = useState(new Date());

@@ -50,5 +50,22 @@ export const useHewanViewModel=()=>{
             setError(err.response?.data?.message ||'Gagal menghapus hewan');
         }
     };
-    return {hewanList, loading, error, fetchHewan, addHewan, deleteHewan};
+    const updateHewan = async(
+        id:number, payload:Partial<Hewan>, onSuccesss:()=>void
+    )=>{
+        setLoading(true);
+        setError(null);
+        try{
+            const res= await hewanRepo.update(id, payload)
+            if(res.success){
+                await fetchHewan();
+                onSuccesss();
+            }
+        }catch(err: any){
+            setError(err.response?.data?.message||'Gagal mengubah data hewan');
+        }finally{
+            setLoading(false);
+        }
+    }
+    return {hewanList, loading, error, fetchHewan, addHewan, deleteHewan, updateHewan};
 };

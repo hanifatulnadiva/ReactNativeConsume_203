@@ -69,18 +69,23 @@ const isEdit = !!params.id;
       return;
     }
 
-    addHewan(
-      {
-        nama: cleanNama,
-        jenis: cleanJenis,
-        harga: numericHarga,
-        tanggal_lahir: formatDateString(tanggalLahir),
-        status: status,
-      },
-      () => {
+    const data=
+    {
+      nama: cleanNama,
+      jenis: cleanJenis,
+      harga: numericHarga,
+      tanggal_lahir: formatDateString(tanggalLahir),
+      status: status,
+    };
+    if (isEdit) {
+      updateHewan(Number(params.id), data, () => {
         router.back();
-      },
-    );
+      });
+    } else {
+      addHewan(data, () => {
+        router.back();
+      });
+    } 
   };
 
   return (

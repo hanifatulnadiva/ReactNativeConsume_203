@@ -13,9 +13,12 @@ export const useHewanViewModel=()=>{
         setLoading(true);
         setError(null);
         try{
+            
             const res = await hewanRepo.getAll();
+            console.log("HASIL RESPONS SERVER HEWAN:", res);
             if(res.success) setHewanList(res.data);
         }catch(err:any){
+            console.log("ERROR API HEWAN DI TERMINAL:", err);
             setError(err.response?.data?.message ||'Gagal mengambil data hewan');
         }finally{
             setLoading(false);

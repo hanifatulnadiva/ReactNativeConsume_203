@@ -1,4 +1,5 @@
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
+import * as SecureStore from "expo-secure-store";
 import { useState } from "react";
 import {
   ActivityIndicator,
@@ -16,6 +17,7 @@ export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { handleLogin, loading, error } = useAuthViewModel();
+  const router= useRouter();
 
   const onLoginPress = () => {
     if (!email.trim() || !password) {
@@ -23,6 +25,12 @@ export default function LoginScreen() {
       return;
     }
     handleLogin(email.trim(), password);
+    setTimeout(async () => {
+      const token = await SecureStore.getItemAsync("user_token");
+      if (token) {
+        router.replace("/main");
+      }
+    }, 500);
   };
 
   return (

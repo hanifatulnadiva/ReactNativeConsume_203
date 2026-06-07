@@ -87,7 +87,7 @@ const isEdit = !!params.id;
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ThemedView style={styles.header}>
-          <ThemedText type="tittle">Tambah Ternak Baru</ThemedText>
+          <ThemedText type="tittle">{isEdit ? "Edit Ternak": "Tambah Ternak Baru"}</ThemedText>
         </ThemedView>
         <ThemedView style={styles.form}>
           {error && <ThemedText style={styles.errorText}>{error}</ThemedText>}

@@ -27,7 +27,9 @@ const isEdit = !!params.id;
       ? new Date(params.tanggal_lahir as string)
       : new Date()
   );
-  const [status, setStatus] = useState("tersedia")
+    const [status, setStatus] = useState(
+    (params.status as string) ?? "tersedia"
+  );
   const [showDatePicker, setShowDatePicker] = useState(false);
 
   const { addHewan, loading, error } = useHewanViewModel();

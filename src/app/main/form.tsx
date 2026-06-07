@@ -22,7 +22,11 @@ const isEdit = !!params.id;
   const [nama, setNama] = useState((params.nama as string) ?? "");
   const [jenis, setJenis] = useState((params.jenis as string) ?? "");
   const [harga, setHarga] = useState (params.harga ?String(params.harga):"");
-  const [tanggalLahir, setTanggalLahir] = useState(new Date());
+  const [tanggalLahir, setTanggalLahir] = useState(
+    params.tanggal_lahir
+      ? new Date(params.tanggal_lahir as string)
+      : new Date()
+  );
   const [status, setStatus] = useState("tersedia")
   const [showDatePicker, setShowDatePicker] = useState(false);
 

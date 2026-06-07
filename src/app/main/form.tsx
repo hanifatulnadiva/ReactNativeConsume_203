@@ -14,11 +14,12 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function AddHewanScreen() {
+export default function FormHewanScreen() {
   const [nama, setNama] = useState("");
   const [jenis, setJenis] = useState("");
   const [harga, setHarga] = useState("");
   const [tanggalLahir, setTanggalLahir] = useState(new Date());
+  const [status, setStatus] = useState("tersedia")
   const [showDatePicker, setShowDatePicker] = useState(false);
 
   const { addHewan, loading, error } = useHewanViewModel();

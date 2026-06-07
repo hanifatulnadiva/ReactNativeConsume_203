@@ -168,7 +168,7 @@ const isEdit = !!params.id;
                 <ActivityIndicator color="#fff" />
               ) : (
                 <ThemedText style={styles.submitButtonText}>
-                  Simpan
+                  {isEdit ? "Simpan Perubahan" : "Simpan"}
                 </ThemedText>
               )}
             </TouchableOpacity>

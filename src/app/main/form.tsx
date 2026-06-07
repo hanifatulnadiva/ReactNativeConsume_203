@@ -20,7 +20,7 @@ const params = useLocalSearchParams();
 const isEdit = !!params.id;
 
   const [nama, setNama] = useState((params.nama as string) ?? "");
-  const [jenis, setJenis] = useState("");
+  const [jenis, setJenis] = useState((params.jenis as string) ?? "");
   const [harga, setHarga] = useState("");
   const [tanggalLahir, setTanggalLahir] = useState(new Date());
   const [status, setStatus] = useState("tersedia")

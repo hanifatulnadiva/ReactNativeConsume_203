@@ -2,7 +2,7 @@ import { ThemedText } from "@/components/themedText";
 import { ThemedView } from "@/components/themed-view";
 import { useHewanViewModel } from "@/hooks/useHewanViewModel";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
 import {
     ActivityIndicator,
@@ -16,6 +16,9 @@ import { Picker } from "@react-native-picker/picker";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function FormHewanScreen() {
+const params = useLocalSearchParams();
+const isEdit = !!params.id;
+
   const [nama, setNama] = useState("");
   const [jenis, setJenis] = useState("");
   const [harga, setHarga] = useState("");

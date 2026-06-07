@@ -13,6 +13,7 @@ import { FlatList } from 'react-native';
 import { router } from 'expo-router';
 import { ThemedView } from '@/components/themed-view';
 import { ThemedText } from '@/components/themedText';
+import { MaterialIcons } from "@expo/vector-icons";
 
 
 export default function DashboardScreen() {
@@ -77,11 +78,37 @@ export default function DashboardScreen() {
               </ThemedText>
               <ThemedText style ={styles.animalPrice}> Rp{item.harga.toLocaleString('id-ID')}</ThemedText>
             </ThemedView>
-            <TouchableOpacity style= {styles.deleteButton}
-              onPress={()=> confirmDelete(item.id!, item.nama)}
-            >
-              <ThemedText style= {styles.deleteButtonText}>Hapus</ThemedText>
-            </TouchableOpacity>
+            <ThemedView style={styles.buttonContainer}>
+              <TouchableOpacity
+                style={styles.editButton}
+                onPress={() => {
+                  router.push({
+                    pathname:"/main/form",
+                    params:{
+                      id:item.id,
+                      nama:item.nama,
+                      jenis:item.jenis,
+                      harga:item.harga,
+                      status:item.status,
+                      tanggal_lahir:item.tanggal_lahir
+                    }
+                  })
+                }}
+              >
+                <MaterialIcons
+                  name="edit"
+                  size={20}
+                  color="#fff"
+                />
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.deleteButton}
+                onPress={() => confirmDelete(item.id!, item.nama)}
+              >
+                <ThemedText style={styles.deleteButtonText}>Hapus</ThemedText>
+              </TouchableOpacity>
+            </ThemedView>
           </ThemedView>
         )}
       />
@@ -219,5 +246,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.four,
     borderRadius: Spacing.four,
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    gap: 10,
+    marginTop: 10,
+  },
+  editButton: {
+    width: 45,
+    height: 45,
+    backgroundColor: "#f59e0b",
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

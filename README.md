@@ -56,8 +56,12 @@ Join our community of developers creating universal apps.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
 
 ## DOKUMENTASI
-|LOGIN|REGISTER|
-|---|---|
-|<img width="1206" height="2533" alt="Screenshot_20260605_184446" src="https://github.com/user-attachments/assets/335d1ac8-5c7b-4576-8810-e96f89e89e28" />|<img width="1206" height="2533" alt="Screenshot_20260605_184229" src="https://github.com/user-attachments/assets/f4ba9467-c2b5-4a66-9173-87b274910d0e" />|
+|LOGIN|REGISTER|Dashboard|
+|---|---|---|
+|<img width="1206" height="2533" alt="Screenshot_20260605_184446" src="https://github.com/user-attachments/assets/335d1ac8-5c7b-4576-8810-e96f89e89e28" />|<img width="1206" height="2533" alt="Screenshot_20260605_184229" src="https://github.com/user-attachments/assets/f4ba9467-c2b5-4a66-9173-87b274910d0e" />|<img width="1206" height="2533" alt="Screenshot_20260607_163457" src="https://github.com/user-attachments/assets/ba6f9fd2-7b55-4c90-b2d2-ed011e104392" />|
+|HALAMAN ADD|HALAMAN UPDATE|HAPUS|
+|---|---|---|
+|<img width="1206" height="2533" alt="Screenshot_20260607_163511" src="https://github.com/user-attachments/assets/4d6cdd64-0180-4134-9d76-f396d2b9f2b2" />|<img width="1206" height="2533" alt="Screenshot_20260607_163533" src="https://github.com/user-attachments/assets/259f5b67-57ac-477f-8cff-8303017b9670" />|<img width="1206" height="2533" alt="Screenshot_20260607_163557" src="https://github.com/user-attachments/assets/39555263-8fe2-456a-b4bf-afc87f6c2394" />|
+
 
 

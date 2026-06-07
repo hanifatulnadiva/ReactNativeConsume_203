@@ -12,6 +12,7 @@ import {
     TextInput,
     TouchableOpacity,
 } from "react-native";
+import { Picker } from "@react-native-picker/picker";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function FormHewanScreen() {
@@ -65,7 +66,7 @@ export default function FormHewanScreen() {
         jenis: cleanJenis,
         harga: numericHarga,
         tanggal_lahir: formatDateString(tanggalLahir),
-        status: "tersedia",
+        status: status,
       },
       () => {
         router.back();
@@ -105,6 +106,15 @@ export default function FormHewanScreen() {
               setHarga(text.replace(/[^0-9]/g, ""));
             }}
           />
+          <ThemedView style={styles.pickerContainer}>
+            <Picker
+              selectedValue={status}
+              onValueChange={(itemValue) => setStatus(itemValue)}
+            >
+              <Picker.Item label="Tersedia" value="tersedia" />
+              <Picker.Item label="Terjual" value="terjual" />
+            </Picker>
+          </ThemedView>
           <TouchableOpacity
             style={styles.dateInputButton}
             onPress={() => setShowDatePicker(true)}
@@ -206,4 +216,10 @@ const styles = StyleSheet.create({
     fontSize: 16, fontWeight: "bold" 
   },
   errorText: { color: "#ef4444", textAlign: "center", fontWeight: "600" },
+  pickerContainer: {
+    backgroundColor: "#f8fafc",
+    borderWidth: 1,
+    borderColor: "#cbd5e1",
+    borderRadius: 12,
+  },
 });

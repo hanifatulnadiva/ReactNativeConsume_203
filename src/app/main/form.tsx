@@ -32,7 +32,7 @@ const isEdit = !!params.id;
   );
   const [showDatePicker, setShowDatePicker] = useState(false);
 
-  const { addHewan, loading, error } = useHewanViewModel();
+  const { addHewan,updateHewan, loading, error } = useHewanViewModel();
   const router = useRouter();
 
   const formatDateString = (date: Date) => {

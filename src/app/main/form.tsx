@@ -1,4 +1,4 @@
-import { ThemedText } from "@/components/themed-text";
+import { ThemedText } from "@/components/themedText";
 import { ThemedView } from "@/components/themed-view";
 import { useHewanViewModel } from "@/hooks/useHewanViewModel";
 import DateTimePicker from "@react-native-community/datetimepicker";
@@ -76,7 +76,7 @@ export default function AddHewanScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ThemedView style={styles.header}>
-          <ThemedText type="title">Tambah Ternak Baru</ThemedText>
+          <ThemedText type="tittle">Tambah Ternak Baru</ThemedText>
         </ThemedView>
         <ThemedView style={styles.form}>
           {error && <ThemedText style={styles.errorText}>{error}</ThemedText>}
@@ -119,23 +119,35 @@ export default function AddHewanScreen() {
               value={tanggalLahir}
               mode="date"
               display={Platform.OS === "ios" ? "spinner" : "default"}
-              onValueChange={onChangeDate}
+              onChange={onChangeDate}
               maximumDate={new Date()}
             />
           )}
-          <TouchableOpacity
-            style={styles.submitButton}
-            onPress={onSubmit}
-            disabled={loading}
-          >
-            {loading ? (
-              <ActivityIndicator color="#fff" />
-            ) : (
+          <ThemedView style={styles.buttonContainer}>
+            <TouchableOpacity
+              style={styles.backButton}
+              onPress={() => router.back()}
+              disabled={loading}
+            >
               <ThemedText style={styles.submitButtonText}>
-                Simpan ke Database
+                Kembali
               </ThemedText>
-            )}
-          </TouchableOpacity>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.submitButton}
+              onPress={onSubmit}
+              disabled={loading}
+            >
+              {loading ? (
+                <ActivityIndicator color="#fff" />
+              ) : (
+                <ThemedText style={styles.submitButtonText}>
+                  Simpan
+                </ThemedText>
+              )}
+            </TouchableOpacity>
+          </ThemedView>
         </ThemedView>
       </SafeAreaView>
     </ThemedView>
@@ -168,12 +180,29 @@ const styles = StyleSheet.create({
   },
   dateText: { fontSize: 16, color: "#334155" },
   submitButton: {
+    flex:1,
     backgroundColor: "#0284c7",
     paddingVertical: 16,
     borderRadius: 12,
     alignItems: "center",
     marginTop: 12,
   },
-  submitButtonText: { color: "#ffffff", fontSize: 16, fontWeight: "bold" },
+  buttonContainer: {
+    flexDirection: "row",
+    gap: 12,
+    marginTop: 12,
+  },
+  backButton: {
+    flex: 1,
+    backgroundColor: "#64748b",
+    paddingVertical: 16,
+    borderRadius: 12,
+    alignItems: "center",
+    marginTop: 12,
+  },
+  submitButtonText: { 
+    color: "#ffffff", 
+    fontSize: 16, fontWeight: "bold" 
+  },
   errorText: { color: "#ef4444", textAlign: "center", fontWeight: "600" },
 });
